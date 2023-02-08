@@ -4,10 +4,11 @@ import numpy as np
 
 
 def generator_of_input_polynomials(max_degree: int) -> str:
+    # Получает "красивый" вид исходных полиномов (p.s. в проге сделал рандомный ввод коэффициентов)
     polynomial = ""
     degree = max_degree
     while degree >= 0:
-        coefficient = int(np.random.randint(-3, 4, 1))
+        coefficient = int(np.random.randint(-3, 4, 1)) # Можно заменить на пользовательский ввод (но я уже задолбался)
         if coefficient == 0 and degree != 0:
             degree -= 1
             continue
@@ -44,6 +45,7 @@ def generator_of_input_polynomials(max_degree: int) -> str:
 
 
 def get_key(term: str) -> str:
+    # Извлекает степень "x" из члена для записи в словарь (ключ)
     key = ''
     flag = False
     for character in term:
@@ -62,6 +64,7 @@ def get_key(term: str) -> str:
 
 
 def get_value(term: str) -> str:
+    # Извлекает коэффициент из члена для записи в словарь (значение)
     value = ''
     for character in term:
         if character == '(':
@@ -78,6 +81,7 @@ def get_value(term: str) -> str:
 
 
 def creator_dict_of_coefficients(polynomial: str) -> dict:
+    # Получает словарь коэффициентов полинома вида {*x**{степень}: (коэффициент)}
     dict_of_coefficients: dict[str, str] = {}
     split_polynomial = polynomial.split()
 
@@ -87,6 +91,9 @@ def creator_dict_of_coefficients(polynomial: str) -> dict:
 
 
 def get_summarise_of_polynomials() -> str:
+    # Основная функция
+
+    # Ввод входных данных - максимальные степени полиномов
     max_degree_1 = int(input(">> Enter a max degree of first polynomial -> "))
     polynom_1 = generator_of_input_polynomials(max_degree_1)
     print(polynom_1)
@@ -97,6 +104,7 @@ def get_summarise_of_polynomials() -> str:
     print(polynom_2)
     dict_2 = creator_dict_of_coefficients(polynom_2)
 
+    # Получение словаря коэффициентов результирующего полинома
     result_dict = {}
     if max_degree_1 > max_degree_2:
         i = max_degree_1
@@ -117,6 +125,7 @@ def get_summarise_of_polynomials() -> str:
 
     # print(f'\n>> {result_dict}')
 
+    # Привидение результата к "красивому" выводу - строке
     result_polynomial = ''
     counter_interation = 0
     for key, value in result_dict.items():
