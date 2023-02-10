@@ -7,7 +7,7 @@ import random
 import math
 
 length_list = int(input(">> Enter length of list -> "))
-li = np.random.randint(1, 101, length_list)
+li = [np.random.randint(1, 101) for _ in range(30)]
 print(li)
 x = int(input(">> Enter a number -> "))
 counter = 0
