@@ -14,6 +14,7 @@
 # 5        10        15         20        25         30
 # 6        12        18         24        30         36
 
+# I способ
 def print_operation_table(operation, num_rows=9, num_columns=9):
     res_string = ''
     row = 0
@@ -27,6 +28,15 @@ def print_operation_table(operation, num_rows=9, num_columns=9):
             column = step % num_columns
             res_string += f'{operation(row, column)}\t'
     print(res_string)
+
+# II способ
+# def print_operation_table(operation, num_rows=9, num_columns=9):
+#     res_string = ''
+#     for i in range(1, num_rows + 1):
+#         for j in range(1, num_columns + 1):
+#             res_string += f'{operation(i, j)}\t'
+#         res_string += '\n'
+#     print(res_string)
 
 
 print_operation_table(lambda x, y: x * y)

@@ -10,3 +10,18 @@
 
 # Ввод: пара-ра-рам рам-пам-папам па-ра-па-да
 # Вывод: Парам пам-пам
+
+poem = input("Enter a poem -> ")
+
+list_of_phrases = poem.split()
+counter = list_of_phrases[0].count('а')
+for phrase in list_of_phrases:
+    if phrase.count('а') == counter:
+        pass
+    else:
+        print('Пам парам')
+        break
+else:
+    print('Парам пам-пам')
+
+
